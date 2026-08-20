@@ -1,6 +1,4 @@
 import { useState } from "react";
-import heroImage from "@/assets/hero.jpg";
-import caseImage from "@/assets/vilaconic.jpg";
 import { Label, OutlineLink, Section, SolidLink, TextLink } from "./primitives";
 
 export function Hero() {
@@ -24,7 +22,7 @@ export function Hero() {
         </div>
         <figure className="relative">
           <img
-            src={heroImage}
+            src="/images/hero.jpg"
             alt="A quiet studio desk with warm natural light, notebooks and drafting tools"
             className="aspect-[4/5] w-full object-cover"
             loading="eager"
@@ -182,7 +180,7 @@ export function CaseStudy() {
       <div className="mt-14 grid gap-14 md:grid-cols-2">
         <figure>
           <img
-            src={caseImage}
+            src="/images/vilaconic.jpg"
             alt="Warm still life of South-East Asian dried goods and produce in wholesale packaging"
             className="aspect-[4/3] w-full object-cover"
             loading="lazy"
