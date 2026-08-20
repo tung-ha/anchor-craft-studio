@@ -23,8 +23,8 @@ export function Hero() {
         <figure className="relative">
           <img
             src="/images/hero.jpg"
-            alt="A quiet studio desk with warm natural light, notebooks and drafting tools"
-            className="aspect-[4/5] w-full object-cover"
+            alt="A calm, warmly lit interior with muted timber, linen and natural light"
+            className="aspect-[4/3.4] w-full object-cover"
             loading="eager"
           />
         </figure>
