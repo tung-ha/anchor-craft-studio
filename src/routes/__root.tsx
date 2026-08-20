@@ -77,11 +77,19 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "Anchor Web — Website Design, Adelaide" },
+      {
+        name: "description",
+        content:
+          "Founder-led website design and development for small businesses in Adelaide, South Australia.",
+      },
+      { name: "author", content: "Anchor Web" },
+      { property: "og:title", content: "Anchor Web — Website Design, Adelaide" },
+      {
+        property: "og:description",
+        content:
+          "Founder-led website design and development for small businesses in Adelaide, South Australia.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:site", content: "@Lovable" },
