@@ -6,43 +6,33 @@ export function Hero() {
   return (
     <section
       id="top"
-      className="relative overflow-hidden px-6 pb-20 pt-20 md:px-10 md:pb-28 md:pt-28"
+      className="relative overflow-hidden px-6 pb-24 pt-24 md:px-10 md:pb-40 md:pt-36"
     >
       <span
         aria-hidden="true"
-        className="drift-motif animate-drift pointer-events-none absolute -right-16 -top-32 select-none font-serif text-[26rem] leading-none text-forest opacity-[0.06] md:-right-24 md:-top-48 md:text-[42rem]"
+        className="drift-motif animate-drift pointer-events-none absolute -right-24 -top-[38%] select-none font-serif text-[38rem] leading-[0.75] text-forest opacity-[0.06] md:-right-40 md:-top-[45%] md:text-[64rem]"
       >
         A
       </span>
-      <div className="relative mx-auto grid w-full max-w-6xl items-center gap-14 md:grid-cols-[1.05fr_0.95fr]">
-        <div>
-          <Label>Website Design · Adelaide</Label>
-          <h1 className="mt-6 max-w-xl font-serif text-[2.6rem] leading-[1.08] tracking-tight md:text-[3.6rem]">
-            <span className="block">
-              A website your customers can <em className="italic">trust.</em>
-            </span>
-            <span className="mt-2 block text-muted-foreground">
-              Live in days, not months.
-            </span>
-          </h1>
-          <p className="mt-7 max-w-md text-base leading-relaxed text-muted-foreground">
-            A considered, founder-led studio in Adelaide, making websites that give
-            small businesses and sole traders the credibility their work already
-            deserves.
-          </p>
-          <div className="mt-10 flex flex-wrap items-center gap-8">
-            <SolidLink href="#contact">Request a Quote</SolidLink>
-            <TextLink href="#work">See recent work</TextLink>
-          </div>
+      <div className="relative mx-auto w-full max-w-6xl">
+        <Label>Website Design · Adelaide</Label>
+        <h1 className="mt-8 max-w-4xl font-serif text-[2.8rem] leading-[1.05] tracking-tight md:text-[5rem]">
+          <span className="block">
+            A website your customers can <em className="italic text-primary">trust.</em>
+          </span>
+          <span className="mt-3 block text-muted-foreground">
+            Live in days, not months.
+          </span>
+        </h1>
+        <p className="mt-9 max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg">
+          A considered, founder-led studio in Adelaide, making websites that give
+          small businesses and sole traders the credibility their work already
+          deserves.
+        </p>
+        <div className="mt-12 flex flex-wrap items-center gap-8">
+          <SolidLink href="#contact">Request a Quote</SolidLink>
+          <TextLink href="#work">See recent work</TextLink>
         </div>
-        <figure className="relative">
-          <img
-            src="/images/hero.jpg"
-            alt="A calm, warmly lit interior with muted timber, linen and natural light"
-            className="aspect-[4/3.4] w-full rounded-[10px] object-cover"
-            loading="eager"
-          />
-        </figure>
       </div>
     </section>
   );
