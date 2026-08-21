@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Header, Footer } from "@/components/site/chrome";
+import { WhatsAppWidget } from "@/components/site/whatsapp-widget";
 import {
   About,
   CaseStudy,
@@ -62,6 +63,7 @@ function Index() {
         <Contact />
       </main>
       <Footer />
+      <WhatsAppWidget />
     </div>
   );
 }
