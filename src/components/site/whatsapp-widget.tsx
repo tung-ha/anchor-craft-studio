@@ -3,7 +3,7 @@ import { AnchorMark } from "./motif";
 import { cn } from "@/lib/utils";
 
 // Replace with the real WhatsApp number (international format, no + or spaces).
-const WHATSAPP_NUMBER = "61400000000";
+const WHATSAPP_NUMBER = "61412805997";
 const WHATSAPP_MESSAGE = "Hi, I'd like to ask about a website.";
 const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
   WHATSAPP_MESSAGE,
