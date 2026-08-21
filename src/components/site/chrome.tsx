@@ -1,4 +1,5 @@
 import { OutlineLink } from "./primitives";
+import { AnchorMark } from "./motif";
 
 const nav = [
   { href: "#services", label: "What I do" },
@@ -11,7 +12,8 @@ export function Header() {
   return (
     <header className="bg-forest text-forest-foreground">
       <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-5 md:px-10">
-        <a href="#top" className="font-serif text-lg tracking-tight">
+        <a href="#top" className="flex items-center gap-2.5 font-serif text-lg tracking-tight">
+          <AnchorMark className="h-5 w-5 shrink-0 text-sage-soft" />
           Anchor Web
         </a>
         <nav className="hidden items-center gap-9 md:flex">
@@ -38,7 +40,10 @@ export function Footer() {
     <footer className="bg-forest px-6 py-16 text-forest-foreground md:px-10">
       <div className="mx-auto grid w-full max-w-6xl gap-12 md:grid-cols-3">
         <div>
-          <p className="font-serif text-2xl">Anchor Web</p>
+          <p className="flex items-center gap-2.5 font-serif text-2xl">
+            <AnchorMark className="h-6 w-6 shrink-0 text-sage-soft" />
+            Anchor Web
+          </p>
           <p className="mt-3 max-w-xs text-sm leading-relaxed text-forest-foreground/60">
             Website design and development for small businesses and sole traders.
           </p>
