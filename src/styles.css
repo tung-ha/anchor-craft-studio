@@ -29,6 +29,7 @@
   --color-cream-deep: var(--cream-deep);
   --color-teal: var(--teal);
   --color-sage-soft: var(--sage-soft);
+  --color-teal-bright: var(--teal-bright);
   --animate-drift: drift 7.5s cubic-bezier(0.45, 0.05, 0.35, 1) infinite;
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -82,6 +83,7 @@
   --teal: #3e6e63;
   --sage: #5c6b64;
   --sage-soft: #9cb0a6;
+  --teal-bright: #6aa891;
   --gold: #3e6e63;
   --background: #f6f1e7;
   --foreground: #26332e;

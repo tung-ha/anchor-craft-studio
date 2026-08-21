@@ -173,7 +173,7 @@ export function Why() {
             Why work with me
           </h2>
           <div className="mt-8 flex gap-4">
-            <AnchorMark className="mt-1 h-4 w-4 shrink-0 text-teal" />
+            <AnchorMark className="mt-1 h-4 w-4 shrink-0 text-teal-bright" />
             <p className="max-w-xs text-sm leading-relaxed text-sage-soft">
               Five things that make the difference between a website that simply
               exists and one that earns its keep.
@@ -185,8 +185,8 @@ export function Why() {
             <Reveal as="li" key={r.n} delay={120 * i}>
               <div className="grid gap-4 py-8 sm:grid-cols-[auto_1fr] sm:gap-10">
                 <div className="flex flex-col items-start gap-2 sm:items-center">
-                   <AnchorMark className="h-4 w-4 text-teal" />
-                   <span className="font-serif text-xl text-teal">{r.n}</span>
+                   <AnchorMark className="h-4 w-4 text-teal-bright" />
+                   <span className="font-serif text-xl text-teal-bright">{r.n}</span>
                 </div>
                 <div>
                   <h3 className="font-serif text-xl">{r.title}</h3>
