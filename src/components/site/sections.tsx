@@ -1,14 +1,29 @@
 import { useState } from "react";
 import { Label, OutlineLink, Section, SolidLink, TextLink } from "./primitives";
+import { AnchorMark, Reveal } from "./motif";
 
 export function Hero() {
   return (
-    <section id="top" className="px-6 pb-20 pt-20 md:px-10 md:pb-28 md:pt-28">
-      <div className="mx-auto grid w-full max-w-6xl items-center gap-14 md:grid-cols-[1.05fr_0.95fr]">
+    <section
+      id="top"
+      className="relative overflow-hidden px-6 pb-20 pt-20 md:px-10 md:pb-28 md:pt-28"
+    >
+      <span
+        aria-hidden="true"
+        className="drift-motif pointer-events-none absolute -right-16 -top-32 select-none font-serif text-[26rem] leading-none text-forest opacity-[0.06] md:-right-24 md:-top-48 md:text-[42rem]"
+      >
+        A
+      </span>
+      <div className="relative mx-auto grid w-full max-w-6xl items-center gap-14 md:grid-cols-[1.05fr_0.95fr]">
         <div>
           <Label>Website Design · Adelaide</Label>
           <h1 className="mt-6 max-w-xl font-serif text-[2.6rem] leading-[1.08] tracking-tight md:text-[3.6rem]">
-            Websites built for businesses that need to be taken seriously
+            <span className="block">
+              A website your customers can <em className="italic">trust.</em>
+            </span>
+            <span className="mt-2 block text-muted-foreground">
+              Live in days, not months.
+            </span>
           </h1>
           <p className="mt-7 max-w-md text-base leading-relaxed text-muted-foreground">
             A considered, founder-led studio in Adelaide, making websites that give
@@ -24,7 +39,7 @@ export function Hero() {
           <img
             src="/images/hero.jpg"
             alt="A calm, warmly lit interior with muted timber, linen and natural light"
-            className="aspect-[4/3.4] w-full object-cover"
+            className="aspect-[4/3.4] w-full rounded-[10px] object-cover"
             loading="eager"
           />
         </figure>
@@ -35,16 +50,19 @@ export function Hero() {
 
 export function Problem() {
   return (
-    <Section className="border-y border-border">
+    <Section className="border-y border-border bg-cream-deep">
       <div className="grid gap-12 md:grid-cols-2">
-        <div>
+        <Reveal>
           <Label>The Problem</Label>
           <h2 className="mt-6 max-w-md font-serif text-3xl leading-tight md:text-[2.6rem]">
             A website can look perfectly fine and still do nothing for the business
             behind it.
           </h2>
-        </div>
-        <div className="space-y-6 text-base leading-relaxed text-muted-foreground md:pt-14">
+        </Reveal>
+        <Reveal
+          delay={120}
+          className="space-y-6 text-base leading-relaxed text-muted-foreground md:pt-14"
+        >
           <p>
             Most small business websites are not broken. They are simply vague. The
             work is good, the reputation is good, and none of that comes through on
@@ -57,7 +75,7 @@ export function Problem() {
             clear structure, honest language, and a straightforward path to making
             contact.
           </p>
-        </div>
+        </Reveal>
       </div>
     </Section>
   );
@@ -89,25 +107,29 @@ const services = [
 export function Services() {
   return (
     <Section id="services">
-      <Label>What I Do</Label>
-      <h2 className="mt-6 max-w-lg font-serif text-3xl leading-tight md:text-[2.6rem]">
-        Four parts of the same job
-      </h2>
-      <div className="mt-14 grid gap-px border border-border bg-border sm:grid-cols-2">
-        {services.map((s) => (
-          <article key={s.title} className="flex flex-col bg-background p-9 md:p-11">
-            <span className="font-serif text-lg text-gold">{s.n}</span>
-            <h3 className="mt-6 font-serif text-2xl">{s.title}</h3>
-            <p className="mt-4 flex-1 text-sm leading-relaxed text-muted-foreground">
-              {s.body}
-            </p>
-            <a
-              href="#contact"
-              className="mt-8 text-[0.68rem] uppercase tracking-[0.18em] text-foreground/70 transition-colors hover:text-foreground"
-            >
-              Explore &rarr;
-            </a>
-          </article>
+      <Reveal>
+        <Label>What I Do</Label>
+        <h2 className="mt-6 max-w-lg font-serif text-3xl leading-tight md:text-[2.6rem]">
+          Four parts of the same job
+        </h2>
+      </Reveal>
+      <div className="mt-14 grid gap-6 sm:grid-cols-2">
+        {services.map((s, i) => (
+          <Reveal as="article" key={s.title} delay={120 * (i + 1)}>
+            <article className="flex h-full flex-col rounded-[10px] border-[0.5px] border-border bg-card p-9 md:p-11">
+              <span className="font-serif text-lg text-primary">{s.n}</span>
+              <h3 className="mt-6 font-serif text-2xl">{s.title}</h3>
+              <p className="mt-4 flex-1 text-sm leading-relaxed text-muted-foreground">
+                {s.body}
+              </p>
+              <a
+                href="#contact"
+                className="mt-8 text-[0.68rem] uppercase tracking-[0.18em] text-primary transition-colors hover:text-foreground"
+              >
+                Explore &rarr;
+              </a>
+            </article>
+          </Reveal>
         ))}
       </div>
     </Section>
@@ -144,25 +166,34 @@ const reasons = [
 
 export function Why() {
   return (
-    <Section id="why" className="bg-forest text-forest-foreground">
-      <div className="grid gap-14 md:grid-cols-[0.8fr_1.2fr]">
-        <div>
-          <Label className="text-forest-foreground/50">How It Works</Label>
+    <Section id="why" className="relative overflow-hidden bg-forest text-forest-foreground">
+      <AnchorMark
+        aria-hidden="true"
+        className="pointer-events-none absolute -bottom-16 right-0 h-72 w-72 text-forest-foreground opacity-[0.06] md:h-96 md:w-96"
+      />
+      <div className="relative grid gap-14 md:grid-cols-[0.8fr_1.2fr]">
+        <Reveal>
+          <Label className="text-sage-soft">How It Works</Label>
           <h2 className="mt-6 font-serif text-3xl leading-tight md:text-[2.6rem]">
             Why work with me
           </h2>
-        </div>
+        </Reveal>
         <ol className="divide-y divide-forest-foreground/15 border-t border-forest-foreground/15">
-          {reasons.map((r) => (
-            <li key={r.n} className="grid gap-4 py-8 sm:grid-cols-[auto_1fr] sm:gap-10">
-              <span className="font-serif text-xl text-gold">{r.n}</span>
-              <div>
-                <h3 className="font-serif text-xl">{r.title}</h3>
-                <p className="mt-3 max-w-xl text-sm leading-relaxed text-forest-foreground/65">
-                  {r.body}
-                </p>
+          {reasons.map((r, i) => (
+            <Reveal as="li" key={r.n} delay={120 * i}>
+              <div className="grid gap-4 py-8 sm:grid-cols-[auto_1fr] sm:gap-10">
+                <div className="flex flex-col items-start gap-2 sm:items-center">
+                  <AnchorMark className="h-4 w-4 text-sage-soft" />
+                  <span className="font-serif text-xl text-sage-soft">{r.n}</span>
+                </div>
+                <div>
+                  <h3 className="font-serif text-xl">{r.title}</h3>
+                  <p className="mt-3 max-w-xl text-sm leading-relaxed text-sage-soft">
+                    {r.body}
+                  </p>
+                </div>
               </div>
-            </li>
+            </Reveal>
           ))}
         </ol>
       </div>
@@ -173,20 +204,22 @@ export function Why() {
 export function CaseStudy() {
   return (
     <Section id="work">
-      <Label>Featured Project</Label>
-      <h2 className="mt-6 max-w-xl font-serif text-3xl leading-tight md:text-[2.6rem]">
-        Vilaconic — a wholesale importer, presented properly
-      </h2>
+      <Reveal>
+        <Label>Featured Project</Label>
+        <h2 className="mt-6 max-w-xl font-serif text-3xl leading-tight md:text-[2.6rem]">
+          Vilaconic — a wholesale importer, presented properly
+        </h2>
+      </Reveal>
       <div className="mt-14 grid gap-14 md:grid-cols-2">
-        <figure>
+        <Reveal as="figure" delay={120}>
           <img
             src="/images/vilaconic.jpg"
             alt="Warm still life of South-East Asian dried goods and produce in wholesale packaging"
-            className="aspect-[4/3] w-full object-cover"
+            className="aspect-[4/3] w-full rounded-[10px] object-cover"
             loading="lazy"
           />
-        </figure>
-        <div>
+        </Reveal>
+        <Reveal delay={240}>
           <p className="text-base leading-relaxed text-muted-foreground">
             Vilaconic is an Adelaide-based wholesale importer of Vietnamese and
             South-East Asian food products, dealing with buyers here and overseas.
@@ -198,24 +231,27 @@ export function CaseStudy() {
             product story, built so the team can send it to a new client with
             confidence rather than explaining themselves from scratch.
           </p>
-          <blockquote className="mt-10 border-l border-gold pl-6 text-lg leading-relaxed">
-            &ldquo;Without any brief, scope, or technology knowledge – we simply
-            handed our business over and let the process happen. This trust was
-            rewarded well. The website has managed to capture everything that is us,
-            has the ability to function in both English and Vietnamese languages for
-            our clients, and provides us with something we can be proud to show new
-            clients. It is unusual to come across somebody who can convert an unclear
-            concept into something like this without our continuous guidance.&rdquo;
-            <footer className="mt-5 font-sans text-[0.68rem] uppercase tracking-[0.18em] text-muted-foreground">
-              Vilaconic, Adelaide
-            </footer>
-          </blockquote>
+          <div className="mt-10 flex gap-5">
+            <AnchorMark className="mt-1.5 h-5 w-5 shrink-0 text-primary" />
+            <blockquote className="border-l border-primary/40 pl-6 text-lg leading-relaxed">
+              &ldquo;Without any brief, scope, or technology knowledge – we simply
+              handed our business over and let the process happen. This trust was
+              rewarded well. The website has managed to capture everything that is us,
+              has the ability to function in both English and Vietnamese languages for
+              our clients, and provides us with something we can be proud to show new
+              clients. It is unusual to come across somebody who can convert an unclear
+              concept into something like this without our continuous guidance.&rdquo;
+              <footer className="mt-5 font-sans text-[0.68rem] uppercase tracking-[0.18em] text-muted-foreground">
+                Vilaconic, Adelaide
+              </footer>
+            </blockquote>
+          </div>
           <div className="mt-10">
             <TextLink href="https://vilaconic.vercel.app" external>
               Visit the live site &rarr;
             </TextLink>
           </div>
-        </div>
+        </Reveal>
       </div>
     </Section>
   );
@@ -223,15 +259,15 @@ export function CaseStudy() {
 
 export function About() {
   return (
-    <Section id="about" className="border-y border-border">
+    <Section id="about" className="border-y border-border bg-cream-deep">
       <div className="grid gap-14 md:grid-cols-[0.8fr_1.2fr]">
-        <div>
+        <Reveal>
           <Label>About</Label>
           <div
             aria-hidden="true"
-            className="mt-8 flex h-28 w-28 items-center justify-center border border-border"
+            className="mt-8 flex h-28 w-28 items-center justify-center rounded-[10px] border-[0.5px] border-border"
           >
-            <svg viewBox="0 0 48 48" className="h-12 w-12 text-gold" fill="none">
+            <svg viewBox="0 0 48 48" className="h-12 w-12 text-primary" fill="none">
               <path
                 d="M24 6v36M24 12c-6 0-9 3-9 3M24 12c6 0 9 3 9 3M8 28c0 8 7 14 16 14s16-6 16-14M6 28h4M38 28h4"
                 stroke="currentColor"
@@ -241,8 +277,11 @@ export function About() {
               <circle cx="24" cy="7" r="3" stroke="currentColor" strokeWidth="1.25" />
             </svg>
           </div>
-        </div>
-        <div className="space-y-6 text-base leading-relaxed text-muted-foreground">
+        </Reveal>
+        <Reveal
+          delay={120}
+          className="space-y-6 text-base leading-relaxed text-muted-foreground"
+        >
           <h2 className="font-serif text-3xl leading-tight text-foreground md:text-[2.4rem]">
             I run Anchor Web from Adelaide.
           </h2>
@@ -262,7 +301,7 @@ export function About() {
             For anything outside my own expertise, I bring in collaborators I trust
             and remain the person accountable for the outcome.
           </p>
-        </div>
+        </Reveal>
       </div>
     </Section>
   );
@@ -281,7 +320,7 @@ export function Contact() {
   return (
     <Section id="contact">
       <div className="grid gap-14 md:grid-cols-[0.8fr_1.2fr]">
-        <div>
+        <Reveal>
           <Label>Contact</Label>
           <h2 className="mt-6 font-serif text-3xl leading-tight md:text-[2.6rem]">
             Tell me about the business.
@@ -294,66 +333,68 @@ export function Contact() {
             <p>hello@anchorweb.com.au</p>
             <p>0400 000 000</p>
           </div>
-        </div>
+        </Reveal>
 
-        {sent ? (
-          <div className="flex items-center border border-border p-10">
-            <p className="text-base leading-relaxed text-muted-foreground">
-              Thank you — your message has been noted. This form is not yet connected
-              to an inbox, so please reach out directly at hello@anchorweb.com.au in
-              the meantime.
-            </p>
-          </div>
-        ) : (
-          <form
-            className="grid gap-7 sm:grid-cols-2"
-            onSubmit={(e) => {
-              e.preventDefault();
-              setSent(true);
-            }}
-          >
-            {fields.map((f) => (
-              <div key={f.name} className="flex flex-col gap-2">
+        <Reveal delay={120}>
+          {sent ? (
+            <div className="flex items-center rounded-[10px] border-[0.5px] border-border p-10">
+              <p className="text-base leading-relaxed text-muted-foreground">
+                Thank you — your message has been noted. This form is not yet connected
+                to an inbox, so please reach out directly at hello@anchorweb.com.au in
+                the meantime.
+              </p>
+            </div>
+          ) : (
+            <form
+              className="grid gap-7 sm:grid-cols-2"
+              onSubmit={(e) => {
+                e.preventDefault();
+                setSent(true);
+              }}
+            >
+              {fields.map((f) => (
+                <div key={f.name} className="flex flex-col gap-2">
+                  <label
+                    htmlFor={f.name}
+                    className="text-[0.68rem] uppercase tracking-[0.18em] text-muted-foreground"
+                  >
+                    {f.label}
+                  </label>
+                  <input
+                    id={f.name}
+                    name={f.name}
+                    type={f.type}
+                    required={f.required}
+                    className="border-b border-border bg-transparent py-2.5 text-base outline-none transition-colors focus:border-primary"
+                  />
+                </div>
+              ))}
+              <div className="flex flex-col gap-2 sm:col-span-2">
                 <label
-                  htmlFor={f.name}
+                  htmlFor="message"
                   className="text-[0.68rem] uppercase tracking-[0.18em] text-muted-foreground"
                 >
-                  {f.label}
+                  Message
                 </label>
-                <input
-                  id={f.name}
-                  name={f.name}
-                  type={f.type}
-                  required={f.required}
-                  className="border-b border-border bg-transparent py-2.5 text-base outline-none transition-colors focus:border-foreground"
+                <textarea
+                  id="message"
+                  name="message"
+                  rows={5}
+                  required
+                  className="border-b border-border bg-transparent py-2.5 text-base outline-none transition-colors focus:border-primary"
                 />
               </div>
-            ))}
-            <div className="flex flex-col gap-2 sm:col-span-2">
-              <label
-                htmlFor="message"
-                className="text-[0.68rem] uppercase tracking-[0.18em] text-muted-foreground"
-              >
-                Message
-              </label>
-              <textarea
-                id="message"
-                name="message"
-                rows={5}
-                required
-                className="border-b border-border bg-transparent py-2.5 text-base outline-none transition-colors focus:border-foreground"
-              />
-            </div>
-            <div className="sm:col-span-2">
-              <button
-                type="submit"
-                className="inline-flex items-center justify-center bg-primary px-8 py-3.5 text-[0.7rem] uppercase tracking-[0.18em] text-primary-foreground transition-colors hover:bg-forest/90"
-              >
-                Send enquiry
-              </button>
-            </div>
-          </form>
-        )}
+              <div className="sm:col-span-2">
+                <button
+                  type="submit"
+                  className="inline-flex items-center justify-center rounded-[8px] bg-primary px-8 py-3.5 text-[0.7rem] uppercase tracking-[0.18em] text-primary-foreground transition-colors hover:bg-primary/90"
+                >
+                  Send enquiry
+                </button>
+              </div>
+            </form>
+          )}
+        </Reveal>
       </div>
     </Section>
   );
