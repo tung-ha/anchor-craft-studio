@@ -29,7 +29,8 @@
   --color-cream-deep: var(--cream-deep);
   --color-teal: var(--teal);
   --color-sage-soft: var(--sage-soft);
-  --animate-drift: drift 7s ease-in-out infinite;
+  --color-teal-bright: var(--teal-bright);
+  --animate-drift: drift 7.5s cubic-bezier(0.45, 0.05, 0.35, 1) infinite;
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -82,6 +83,7 @@
   --teal: #3e6e63;
   --sage: #5c6b64;
   --sage-soft: #9cb0a6;
+  --teal-bright: #6aa891;
   --gold: #3e6e63;
   --background: #f6f1e7;
   --foreground: #26332e;
@@ -174,16 +176,28 @@
 }
 
 @keyframes drift {
-  0%,
-  100% {
-    transform: translate3d(0, 0, 0) scale(1);
+  0% {
+    transform: translate3d(0, 0, 0) scale(1) rotate(0deg);
     opacity: 0.05;
   }
-  50% {
-    transform: translate3d(-22px, 18px, 0) scale(1.05);
+  35% {
+    transform: translate3d(-14px, 10px, 0) scale(1.03) rotate(-1.2deg);
+    opacity: 0.085;
+  }
+  60% {
+    transform: translate3d(-22px, 18px, 0) scale(1.05) rotate(0.6deg);
     opacity: 0.1;
   }
+  85% {
+    transform: translate3d(-9px, 6px, 0) scale(1.02) rotate(1.6deg);
+    opacity: 0.075;
+  }
+  100% {
+    transform: translate3d(0, 0, 0) scale(1) rotate(0deg);
+    opacity: 0.05;
+  }
 }
+
 
 @layer base {
   .reveal {
