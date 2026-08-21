@@ -166,14 +166,21 @@ export function Why() {
           <h2 className="mt-6 font-serif text-3xl leading-tight md:text-[2.6rem]">
             Why work with me
           </h2>
+          <div className="mt-8 flex gap-4">
+            <AnchorMark className="mt-1 h-4 w-4 shrink-0 text-teal" />
+            <p className="max-w-xs text-sm leading-relaxed text-sage-soft">
+              Five things that make the difference between a website that simply
+              exists and one that earns its keep.
+            </p>
+          </div>
         </Reveal>
         <ol className="divide-y divide-forest-foreground/15 border-t border-forest-foreground/15">
           {reasons.map((r, i) => (
             <Reveal as="li" key={r.n} delay={120 * i}>
               <div className="grid gap-4 py-8 sm:grid-cols-[auto_1fr] sm:gap-10">
                 <div className="flex flex-col items-start gap-2 sm:items-center">
-                  <AnchorMark className="h-4 w-4 text-sage-soft" />
-                  <span className="font-serif text-xl text-sage-soft">{r.n}</span>
+                   <AnchorMark className="h-4 w-4 text-teal" />
+                   <span className="font-serif text-xl text-teal">{r.n}</span>
                 </div>
                 <div>
                   <h3 className="font-serif text-xl">{r.title}</h3>
@@ -262,19 +269,10 @@ export function About() {
       <div className="grid gap-14 md:grid-cols-[0.8fr_1.2fr]">
         <Reveal>
           <Label>About</Label>
-          <div
-            aria-hidden="true"
-            className="mt-8 flex h-28 w-28 items-center justify-center rounded-[10px] border-[0.5px] border-border"
-          >
-            <svg viewBox="0 0 48 48" className="h-12 w-12 text-primary" fill="none">
-              <path
-                d="M24 6v36M24 12c-6 0-9 3-9 3M24 12c6 0 9 3 9 3M8 28c0 8 7 14 16 14s16-6 16-14M6 28h4M38 28h4"
-                stroke="currentColor"
-                strokeWidth="1.25"
-                strokeLinecap="round"
-              />
-              <circle cx="24" cy="7" r="3" stroke="currentColor" strokeWidth="1.25" />
-            </svg>
+          <AnchorMark className="mt-8 h-9 w-9 text-primary" />
+          <div className="mt-8 space-y-3 text-sm leading-relaxed text-muted-foreground">
+            <p>Founder-led studio, working from Adelaide, South Australia.</p>
+            <p>A small number of clients taken on at a time.</p>
           </div>
         </Reveal>
         <Reveal
