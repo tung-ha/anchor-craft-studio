@@ -10,7 +10,7 @@ export function Hero() {
     >
       <span
         aria-hidden="true"
-        className="drift-motif pointer-events-none absolute -right-16 -top-32 select-none font-serif text-[26rem] leading-none text-forest opacity-[0.06] md:-right-24 md:-top-48 md:text-[42rem]"
+        className="drift-motif animate-drift pointer-events-none absolute -right-16 -top-32 select-none font-serif text-[26rem] leading-none text-forest opacity-[0.06] md:-right-24 md:-top-48 md:text-[42rem]"
       >
         A
       </span>
@@ -115,7 +115,7 @@ export function Services() {
       </Reveal>
       <div className="mt-14 grid gap-6 sm:grid-cols-2">
         {services.map((s, i) => (
-          <Reveal as="article" key={s.title} delay={120 * (i + 1)}>
+          <Reveal key={s.title} delay={120 * (i + 1)}>
             <article className="flex h-full flex-col rounded-[10px] border-[0.5px] border-border bg-card p-9 md:p-11">
               <span className="font-serif text-lg text-primary">{s.n}</span>
               <h3 className="mt-6 font-serif text-2xl">{s.title}</h3>
@@ -168,7 +168,6 @@ export function Why() {
   return (
     <Section id="why" className="relative overflow-hidden bg-forest text-forest-foreground">
       <AnchorMark
-        aria-hidden="true"
         className="pointer-events-none absolute -bottom-16 right-0 h-72 w-72 text-forest-foreground opacity-[0.06] md:h-96 md:w-96"
       />
       <div className="relative grid gap-14 md:grid-cols-[0.8fr_1.2fr]">
