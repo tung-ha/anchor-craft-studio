@@ -280,7 +280,18 @@ export function About() {
             <p>Founder-led studio, working from Adelaide, South Australia.</p>
             <p>A small number of clients taken on at a time.</p>
           </div>
+          <figure className="mt-10 max-w-xs overflow-hidden rounded-[10px] border-[0.5px] border-border">
+            <img
+              src="/images/about-texture.jpg"
+              alt="Warm natural light across a linen and oak desk surface"
+              width={1200}
+              height={912}
+              loading="lazy"
+              className="block aspect-[4/3] w-full object-cover"
+            />
+          </figure>
         </Reveal>
+
         <Reveal
           delay={120}
           className="space-y-6 text-base leading-relaxed text-muted-foreground"
