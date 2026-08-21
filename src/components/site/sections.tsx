@@ -416,18 +416,13 @@ export function Contact() {
           {sent ? (
             <div className="flex items-center rounded-[10px] border-[0.5px] border-border p-10">
               <p className="text-base leading-relaxed text-muted-foreground">
-                Thank you — your message has been noted. This form is not yet connected
-                to an inbox — for anything urgent, call {PHONE_DISPLAY}.
+                Thank you — your message has been sent. I&rsquo;ll reply by email
+                shortly. For anything urgent, call {PHONE_DISPLAY}.
               </p>
             </div>
           ) : (
-            <form
-              className="grid gap-7 sm:grid-cols-2"
-              onSubmit={(e) => {
-                e.preventDefault();
-                setSent(true);
-              }}
-            >
+            <form className="grid gap-7 sm:grid-cols-2" onSubmit={handleSubmit}>
+
               {fields.map((f) => (
                 <div key={f.name} className="flex flex-col gap-2">
                   <label
