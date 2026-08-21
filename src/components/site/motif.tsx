@@ -63,3 +63,40 @@ export function Reveal({
     </As>
   );
 }
+
+const iconProps = {
+  viewBox: "0 0 24 24",
+  fill: "none" as const,
+  stroke: "currentColor",
+  strokeWidth: 1.25,
+  strokeLinecap: "round" as const,
+  strokeLinejoin: "round" as const,
+  "aria-hidden": true as const,
+};
+
+/** Minimal line icons matching the anchor mark's stroke weight. */
+export const ServiceIcons = {
+  layout: (props: { className?: string }) => (
+    <svg {...iconProps} className={cn("h-6 w-6", props.className)}>
+      <rect x="3" y="4" width="18" height="16" rx="2" />
+      <path d="M3 9h18M9 9v11" />
+    </svg>
+  ),
+  code: (props: { className?: string }) => (
+    <svg {...iconProps} className={cn("h-6 w-6", props.className)}>
+      <path d="M8.5 7.5 3.5 12l5 4.5M15.5 7.5l5 4.5-5 4.5M13.5 4.5l-3 15" />
+    </svg>
+  ),
+  document: (props: { className?: string }) => (
+    <svg {...iconProps} className={cn("h-6 w-6", props.className)}>
+      <path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8l-5-5Z" />
+      <path d="M14 3v5h5M9 13h6M9 17h4" />
+    </svg>
+  ),
+  shield: (props: { className?: string }) => (
+    <svg {...iconProps} className={cn("h-6 w-6", props.className)}>
+      <path d="M12 3l7 3v6c0 4.2-2.9 7.7-7 9-4.1-1.3-7-4.8-7-9V6l7-3Z" />
+      <path d="M9.2 12.2l2 2 3.6-3.9" />
+    </svg>
+  ),
+};
