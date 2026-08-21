@@ -94,7 +94,7 @@ export function TextLink({
     <a
       href={href}
       {...(external ? { target: "_blank", rel: "noreferrer" } : {})}
-      className="inline-flex items-center gap-2 border-b border-foreground/30 pb-1 text-sm text-foreground transition-colors hover:border-foreground"
+      className="inline-flex items-center gap-2 border-b border-foreground/30 pb-1 text-sm text-foreground transition-colors hover:border-primary hover:text-primary"
     >
       {children}
     </a>
