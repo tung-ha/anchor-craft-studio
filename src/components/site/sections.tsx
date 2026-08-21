@@ -74,21 +74,25 @@ export function Problem() {
 const services = [
   {
     n: "I",
+    Icon: ServiceIcons.layout,
     title: "Website design",
     body: "Layouts and typography that suit the business rather than a template — clear, calm, and built around what a customer needs to see first.",
   },
   {
     n: "II",
+    Icon: ServiceIcons.code,
     title: "Development & build",
     body: "Fast, modern, hand-built sites that work properly on phones, load quickly, and stay easy to update as the business changes.",
   },
   {
     n: "III",
+    Icon: ServiceIcons.document,
     title: "Copy & structure",
     body: "Working out what a page should say and in what order, so visitors understand the offer without effort.",
   },
   {
     n: "IV",
+    Icon: ServiceIcons.shield,
     title: "Care & support",
     body: "Hosting, updates and small changes after launch, handled by the same person who built the site.",
   },
@@ -107,7 +111,9 @@ export function Services() {
         {services.map((s, i) => (
           <Reveal key={s.title} delay={120 * (i + 1)}>
             <article className="flex h-full flex-col rounded-[10px] border-[0.5px] border-border bg-card p-9 md:p-11">
-              <span className="font-serif text-lg text-primary">{s.n}</span>
+              <s.Icon className="h-6 w-6 text-primary" />
+              <span className="mt-6 block font-serif text-lg text-primary">{s.n}</span>
+
               <h3 className="mt-6 font-serif text-2xl">{s.title}</h3>
               <p className="mt-4 flex-1 text-sm leading-relaxed text-muted-foreground">
                 {s.body}
