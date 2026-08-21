@@ -352,16 +352,20 @@ export function Contact() {
     setBusy(true);
     setError(null);
     const fd = new FormData(e.currentTarget);
+    const parsed = enquirySchema.safeParse({
+      name: String(fd.get("name") ?? ""),
+      business: String(fd.get("business") ?? ""),
+      email: String(fd.get("email") ?? ""),
+      phone: String(fd.get("phone") ?? ""),
+      message: String(fd.get("message") ?? ""),
+    });
+    if (!parsed.success) {
+      setError(parsed.error.issues[0]?.message ?? "Please check your details.");
+      setBusy(false);
+      return;
+    }
     try {
-      await submit({
-        data: {
-          name: String(fd.get("name") ?? ""),
-          business: String(fd.get("business") ?? ""),
-          email: String(fd.get("email") ?? ""),
-          phone: String(fd.get("phone") ?? ""),
-          message: String(fd.get("message") ?? ""),
-        },
-      });
+      await submit({ data: parsed.data });
       setSent(true);
     } catch (err) {
       setError(
