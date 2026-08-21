@@ -186,7 +186,7 @@ export function Why() {
             </p>
           </div>
         </Reveal>
-        <ol className="divide-y divide-forest-foreground/15 border-t border-forest-foreground/15">
+        <ol className="divide-y divide-forest-border border-t border-forest-border">
           {reasons.map((r, i) => (
             <Reveal as="li" key={r.n} delay={120 * i}>
               <div className="grid gap-4 py-8 sm:grid-cols-[auto_1fr] sm:gap-10">

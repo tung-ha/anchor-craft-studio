@@ -24,6 +24,7 @@
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
   --color-forest: var(--forest);
   --color-forest-foreground: var(--forest-foreground);
+  --color-forest-border: var(--forest-border);
   --color-sage: var(--sage);
   --color-gold: var(--gold);
   --color-cream: var(--cream);
@@ -79,11 +80,12 @@
   /* Exact brand palette */
   --cream: #f6f1e7;
   --cream-deep: #e2d6bd;
-  --forest: #2f4a3a;
+  --forest: #2a2622;
   --forest-foreground: #f6f1e7;
+  --forest-border: #453f38;
   --teal: #3e6e8a;
   --sage: #5c6b64;
-  --sage-soft: #a3b3bf;
+  --sage-soft: #a69c8e;
   --teal-bright: #8fb4d4;
   --gold: #3e6e8a;
   --background: #f6f1e7;

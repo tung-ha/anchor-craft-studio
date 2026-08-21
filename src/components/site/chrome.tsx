@@ -45,7 +45,7 @@ export function Footer() {
             <AnchorMark className="h-6 w-6 shrink-0 text-sage-soft" />
             Anchor Web
           </p>
-          <p className="mt-3 max-w-xs text-sm leading-relaxed text-forest-foreground/60">
+          <p className="mt-3 max-w-xs text-sm leading-relaxed text-sage-soft">
             Website design and development for small businesses and sole traders.
           </p>
         </div>
@@ -54,13 +54,13 @@ export function Footer() {
             <a
               key={item.href}
               href={item.href}
-              className="font-mono text-[0.7rem] uppercase tracking-[0.18em] text-forest-foreground/60 transition-colors hover:text-forest-foreground"
+              className="font-mono text-[0.7rem] uppercase tracking-[0.18em] text-sage-soft/70 transition-colors hover:text-forest-foreground"
             >
               {item.label}
             </a>
           ))}
         </nav>
-        <div className="space-y-3 text-sm text-forest-foreground/70">
+        <div className="space-y-3 text-sm text-sage-soft">
           <p>
             <a
               href={PHONE_TEL}
@@ -80,15 +80,15 @@ export function Footer() {
             </a>
           </p>
           <p>
-            <a href={`mailto:${EMAIL}`} className="text-forest-foreground/50 hover:text-forest-foreground">
+            <a href={`mailto:${EMAIL}`} className="text-sage-soft/70 hover:text-forest-foreground">
               {EMAIL}
             </a>
           </p>
-          <p className="text-forest-foreground/50">Adelaide, South Australia</p>
+          <p className="text-sage-soft/70">Adelaide, South Australia</p>
         </div>
       </div>
-      <div className="mx-auto mt-14 w-full max-w-6xl border-t border-forest-foreground/15 pt-6">
-        <p className="text-xs text-forest-foreground/45">
+      <div className="mx-auto mt-14 w-full max-w-6xl border-t border-forest-border pt-6">
+        <p className="text-xs text-sage-soft/60">
           &copy; {new Date().getFullYear()} Anchor Web. Adelaide, South Australia.
         </p>
       </div>
