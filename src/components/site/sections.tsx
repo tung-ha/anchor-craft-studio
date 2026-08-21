@@ -201,12 +201,22 @@ export function CaseStudy() {
       </Reveal>
       <div className="mt-14 grid gap-14 md:grid-cols-2">
         <Reveal as="figure" delay={120}>
-          <img
-            src="/images/vilaconic.jpg"
-            alt="Warm still life of South-East Asian dried goods and produce in wholesale packaging"
-            className="aspect-[4/3] w-full rounded-[10px] object-cover"
-            loading="lazy"
-          />
+          <div className="overflow-hidden rounded-[10px] border-[0.5px] border-border bg-card">
+            <div className="flex items-center gap-2 border-b-[0.5px] border-border bg-secondary px-4 py-3">
+              <span className="h-2.5 w-2.5 rounded-full bg-border" />
+              <span className="h-2.5 w-2.5 rounded-full bg-border" />
+              <span className="h-2.5 w-2.5 rounded-full bg-border" />
+              <span className="ml-3 flex-1 truncate rounded-[4px] bg-background px-3 py-1 text-[0.65rem] tracking-wide text-muted-foreground">
+                vilaconic.vercel.app
+              </span>
+            </div>
+            <img
+              src="/images/vilaconic-site.jpg"
+              alt="Screenshot of the Vilaconic website homepage, a bilingual wholesale food importer site"
+              className="block w-full"
+              loading="lazy"
+            />
+          </div>
         </Reveal>
         <Reveal delay={240}>
           <p className="text-base leading-relaxed text-muted-foreground">
