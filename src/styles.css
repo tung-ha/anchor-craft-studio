@@ -30,7 +30,7 @@
   --color-teal: var(--teal);
   --color-sage-soft: var(--sage-soft);
   --color-teal-bright: var(--teal-bright);
-  --animate-drift: drift 7.5s cubic-bezier(0.45, 0.05, 0.35, 1) infinite;
+  --animate-drift: drift 12s cubic-bezier(0.37, 0, 0.63, 1) infinite;
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -176,27 +176,17 @@
 }
 
 @keyframes drift {
-  0% {
-    transform: translate3d(0, 0, 0) scale(1) rotate(0deg);
-    opacity: 0.05;
-  }
-  35% {
-    transform: translate3d(-14px, 10px, 0) scale(1.03) rotate(-1.2deg);
-    opacity: 0.085;
-  }
-  60% {
-    transform: translate3d(-22px, 18px, 0) scale(1.05) rotate(0.6deg);
-    opacity: 0.1;
-  }
-  85% {
-    transform: translate3d(-9px, 6px, 0) scale(1.02) rotate(1.6deg);
-    opacity: 0.075;
-  }
+  0%,
   100% {
-    transform: translate3d(0, 0, 0) scale(1) rotate(0deg);
+    transform: translate3d(0, 0, 0) scale(1) rotate(-0.8deg);
     opacity: 0.05;
+  }
+  50% {
+    transform: translate3d(-20px, 16px, 0) scale(1.045) rotate(0.8deg);
+    opacity: 0.095;
   }
 }
+
 
 
 @layer base {
