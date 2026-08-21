@@ -51,7 +51,7 @@ export function SolidLink({
   return (
     <a
       href={href}
-      className={cn(base, "bg-primary text-primary-foreground hover:bg-forest/90", className)}
+      className={cn(base, "bg-primary text-primary-foreground hover:bg-primary/90", className)}
     >
       {children}
     </a>
