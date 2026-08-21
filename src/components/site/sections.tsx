@@ -1,7 +1,10 @@
 import { useState } from "react";
+import { useServerFn } from "@tanstack/react-start";
+import { sendEnquiry } from "@/lib/contact.functions";
 import { Label, OutlineLink, Section, SolidLink, TextLink } from "./primitives";
 import { PHONE_DISPLAY, PHONE_TEL, WHATSAPP_URL, EMAIL } from "@/lib/contact";
 import { AnchorMark, Reveal, ServiceIcons } from "./motif";
+
 
 export function Hero() {
   return (
@@ -340,9 +343,40 @@ const fields = [
 
 export function Contact() {
   const [sent, setSent] = useState(false);
+  const [busy, setBusy] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const submit = useServerFn(sendEnquiry);
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setBusy(true);
+    setError(null);
+    const fd = new FormData(e.currentTarget);
+    try {
+      await submit({
+        data: {
+          name: String(fd.get("name") ?? ""),
+          business: String(fd.get("business") ?? ""),
+          email: String(fd.get("email") ?? ""),
+          phone: String(fd.get("phone") ?? ""),
+          message: String(fd.get("message") ?? ""),
+        },
+      });
+      setSent(true);
+    } catch (err) {
+      setError(
+        err instanceof Error && err.message
+          ? err.message
+          : "Something went wrong. Please call or WhatsApp instead.",
+      );
+    } finally {
+      setBusy(false);
+    }
+  }
 
   return (
     <Section id="contact">
+
       <div className="grid gap-14 md:grid-cols-[0.8fr_1.2fr]">
         <Reveal>
           <Label>Contact</Label>
@@ -382,18 +416,13 @@ export function Contact() {
           {sent ? (
             <div className="flex items-center rounded-[10px] border-[0.5px] border-border p-10">
               <p className="text-base leading-relaxed text-muted-foreground">
-                Thank you — your message has been noted. This form is not yet connected
-                to an inbox — for anything urgent, call {PHONE_DISPLAY}.
+                Thank you — your message has been sent. I&rsquo;ll reply by email
+                shortly. For anything urgent, call {PHONE_DISPLAY}.
               </p>
             </div>
           ) : (
-            <form
-              className="grid gap-7 sm:grid-cols-2"
-              onSubmit={(e) => {
-                e.preventDefault();
-                setSent(true);
-              }}
-            >
+            <form className="grid gap-7 sm:grid-cols-2" onSubmit={handleSubmit}>
+
               {fields.map((f) => (
                 <div key={f.name} className="flex flex-col gap-2">
                   <label
@@ -429,11 +458,16 @@ export function Contact() {
               <div className="sm:col-span-2">
                 <button
                   type="submit"
-                  className="inline-flex items-center justify-center rounded-[8px] border border-border px-7 py-3 font-mono text-[0.68rem] uppercase tracking-[0.18em] text-muted-foreground transition-colors hover:border-primary hover:text-primary"
+                  disabled={busy}
+                  className="inline-flex items-center justify-center rounded-[8px] border border-border px-7 py-3 font-mono text-[0.68rem] uppercase tracking-[0.18em] text-muted-foreground transition-colors hover:border-primary hover:text-primary disabled:opacity-50"
                 >
-                  Send enquiry
+                  {busy ? "Sending…" : "Send enquiry"}
                 </button>
+                {error && (
+                  <p className="mt-4 text-sm text-muted-foreground">{error}</p>
+                )}
               </div>
+
             </form>
           )}
         </Reveal>
