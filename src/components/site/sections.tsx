@@ -60,7 +60,7 @@ export function Problem() {
             this business is the safe choice — so they leave and enquire elsewhere.
           </p>
           <p>
-            Anchor Web exists to close that gap. I work through what a business
+            This is the gap I set out to close. I work through what a business
             actually needs to communicate, then build a site that says it plainly:
             clear structure, honest language, and a straightforward path to making
             contact.
