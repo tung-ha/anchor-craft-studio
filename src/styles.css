@@ -24,6 +24,7 @@
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
   --color-forest: var(--forest);
   --color-forest-foreground: var(--forest-foreground);
+  --color-forest-border: var(--forest-border);
   --color-sage: var(--sage);
   --color-gold: var(--gold);
   --color-cream: var(--cream);
