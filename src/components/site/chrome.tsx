@@ -45,7 +45,7 @@ export function Footer() {
             <AnchorMark className="h-6 w-6 shrink-0 text-sage-soft" />
             Anchor Web
           </p>
-          <p className="mt-3 max-w-xs text-sm leading-relaxed text-forest-foreground/60">
+          <p className="mt-3 max-w-xs text-sm leading-relaxed text-sage-soft">
             Website design and development for small businesses and sole traders.
           </p>
         </div>
@@ -54,7 +54,7 @@ export function Footer() {
             <a
               key={item.href}
               href={item.href}
-              className="font-mono text-[0.7rem] uppercase tracking-[0.18em] text-forest-foreground/60 transition-colors hover:text-forest-foreground"
+              className="font-mono text-[0.7rem] uppercase tracking-[0.18em] text-sage-soft/70 transition-colors hover:text-forest-foreground"
             >
               {item.label}
             </a>
