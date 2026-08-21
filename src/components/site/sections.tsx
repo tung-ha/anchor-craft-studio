@@ -63,16 +63,13 @@ export function Problem() {
           className="space-y-6 text-base leading-relaxed text-muted-foreground md:pt-14"
         >
           <p>
-            Most small business websites are not broken. They are simply vague. The
-            work is good, the reputation is good, and none of that comes through on
-            the screen. Visitors cannot tell what is offered, who it is for, or why
-            this business is the safe choice — so they leave and enquire elsewhere.
+            Most small business websites aren't broken — they're just vague. Good
+            work, good reputation, none of it comes through. Visitors can't tell
+            what you offer or why you're the safe choice, so they leave.
           </p>
           <p>
-            This is the gap I set out to close. I work through what a business
-            actually needs to communicate, then build a site that says it plainly:
-            clear structure, honest language, and a straightforward path to making
-            contact.
+            I close that gap: clear structure, honest language, a straightforward
+            path to contact.
           </p>
         </Reveal>
       </div>
@@ -318,20 +315,15 @@ export function About() {
             I run Anchor Web from Adelaide.
           </h2>
           <p>
-            I started this because I kept meeting people who were good at what they
-            do and poorly served by the website representing them — either an
-            unfinished template, or an agency engagement that cost more than it
-            returned.
+            I started this after meeting too many good businesses stuck with a bad
+            website — an unfinished template, or an agency bill that cost more than
+            it returned.
           </p>
           <p>
-            I work with a small number of clients at a time, which means the
-            attention stays where it should be. I ask a lot of questions early, I
-            explain things without jargon, and I would rather tell you a feature is
-            unnecessary than sell it to you.
-          </p>
-          <p>
-            For anything outside my own expertise, I bring in collaborators I trust
-            and remain the person accountable for the outcome.
+            I take on a small number of clients at a time, ask the right questions
+            early, and skip the jargon. If something's unnecessary, I'll tell you —
+            not sell it to you. For anything outside my own expertise, I bring in
+            collaborators I trust and stay accountable for the result.
           </p>
         </Reveal>
       </div>
