@@ -26,6 +26,10 @@
   --color-sage: var(--sage);
   --color-gold: var(--gold);
   --color-cream: var(--cream);
+  --color-cream-deep: var(--cream-deep);
+  --color-teal: var(--teal);
+  --color-sage-soft: var(--sage-soft);
+  --animate-drift: drift 8s ease-in-out infinite;
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
