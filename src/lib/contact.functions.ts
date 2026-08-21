@@ -1,15 +1,5 @@
 import { createServerFn } from "@tanstack/react-start";
-import { z } from "zod";
-
-const enquirySchema = z.object({
-  name: z.string().trim().min(1, "Name is required").max(100),
-  business: z.string().trim().max(120).optional().or(z.literal("")),
-  email: z.string().trim().email("Enter a valid email").max(255),
-  phone: z.string().trim().max(40).optional().or(z.literal("")),
-  message: z.string().trim().min(1, "Message is required").max(2000),
-});
-
-export type EnquiryInput = z.infer<typeof enquirySchema>;
+import { enquirySchema } from "./contact.schema";
 
 const escapeHtml = (value: string) =>
   value
