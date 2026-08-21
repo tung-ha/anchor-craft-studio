@@ -11,7 +11,7 @@ export function Label({
   return (
     <p
       className={cn(
-        "text-[0.68rem] uppercase tracking-[0.22em] text-muted-foreground",
+        "font-mono text-[0.68rem] uppercase tracking-[0.22em] text-muted-foreground",
         className,
       )}
     >
@@ -30,14 +30,14 @@ export function Section({
   className?: string;
 }) {
   return (
-    <section id={id} className={cn("px-6 py-24 md:px-10 md:py-32", className)}>
+    <section id={id} className={cn("grid-texture px-6 py-24 md:px-10 md:py-32", className)}>
       <div className="mx-auto w-full max-w-6xl">{children}</div>
     </section>
   );
 }
 
 const base =
-  "inline-flex items-center justify-center rounded-[8px] px-7 py-3.5 text-[0.7rem] uppercase tracking-[0.18em] transition-colors";
+  "inline-flex items-center justify-center rounded-[8px] px-7 py-3.5 font-mono text-[0.7rem] uppercase tracking-[0.18em] transition-colors";
 
 export function SolidLink({
   href,

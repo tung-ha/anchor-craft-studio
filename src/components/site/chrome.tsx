@@ -1,4 +1,5 @@
-import { OutlineLink } from "./primitives";
+import { SolidLink } from "./primitives";
+import { PHONE_DISPLAY, PHONE_TEL, WHATSAPP_URL, EMAIL } from "@/lib/contact";
 import { AnchorMark } from "./motif";
 
 const nav = [
@@ -10,7 +11,7 @@ const nav = [
 
 export function Header() {
   return (
-    <header className="bg-forest text-forest-foreground">
+    <header className="grid-texture bg-forest text-forest-foreground">
       <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-5 md:px-10">
         <a href="#top" className="flex items-center gap-2.5 font-serif text-lg tracking-tight">
           <AnchorMark className="h-5 w-5 shrink-0 text-sage-soft" />
@@ -21,15 +22,15 @@ export function Header() {
             <a
               key={item.href}
               href={item.href}
-              className="text-[0.7rem] uppercase tracking-[0.18em] text-forest-foreground/70 transition-colors hover:text-forest-foreground"
+              className="font-mono text-[0.7rem] uppercase tracking-[0.18em] text-forest-foreground/70 transition-colors hover:text-forest-foreground"
             >
               {item.label}
             </a>
           ))}
         </nav>
-        <OutlineLink href="#contact" className="border-forest-foreground/40 py-2.5">
-          Request a Quote
-        </OutlineLink>
+        <SolidLink href={PHONE_TEL} className="py-2.5">
+          Call {PHONE_DISPLAY}
+        </SolidLink>
       </div>
     </header>
   );
@@ -37,7 +38,7 @@ export function Header() {
 
 export function Footer() {
   return (
-    <footer className="bg-forest px-6 py-16 text-forest-foreground md:px-10">
+    <footer className="grid-texture bg-forest px-6 py-16 text-forest-foreground md:px-10">
       <div className="mx-auto grid w-full max-w-6xl gap-12 md:grid-cols-3">
         <div>
           <p className="flex items-center gap-2.5 font-serif text-2xl">
@@ -53,7 +54,7 @@ export function Footer() {
             <a
               key={item.href}
               href={item.href}
-              className="text-[0.7rem] uppercase tracking-[0.18em] text-forest-foreground/60 transition-colors hover:text-forest-foreground"
+              className="font-mono text-[0.7rem] uppercase tracking-[0.18em] text-forest-foreground/60 transition-colors hover:text-forest-foreground"
             >
               {item.label}
             </a>
@@ -61,13 +62,26 @@ export function Footer() {
         </nav>
         <div className="space-y-3 text-sm text-forest-foreground/70">
           <p>
-            <a href="mailto:hello@anchorweb.com.au" className="hover:text-forest-foreground">
-              hello@anchorweb.com.au
+            <a
+              href={PHONE_TEL}
+              className="font-serif text-xl text-forest-foreground transition-colors hover:text-teal-bright"
+            >
+              Call {PHONE_DISPLAY}
             </a>
           </p>
           <p>
-            <a href="tel:0400000000" className="hover:text-forest-foreground">
-              0400 000 000
+            <a
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noreferrer"
+              className="hover:text-forest-foreground"
+            >
+              Message on WhatsApp
+            </a>
+          </p>
+          <p>
+            <a href={`mailto:${EMAIL}`} className="text-forest-foreground/50 hover:text-forest-foreground">
+              {EMAIL}
             </a>
           </p>
           <p className="text-forest-foreground/50">Adelaide, South Australia</p>

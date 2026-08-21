@@ -1,12 +1,13 @@
 import { useState } from "react";
 import { Label, OutlineLink, Section, SolidLink, TextLink } from "./primitives";
+import { PHONE_DISPLAY, PHONE_TEL, WHATSAPP_URL, EMAIL } from "@/lib/contact";
 import { AnchorMark, Reveal, ServiceIcons } from "./motif";
 
 export function Hero() {
   return (
     <section
       id="top"
-      className="relative overflow-hidden px-6 pb-24 pt-24 md:px-10 md:pb-40 md:pt-36"
+      className="grid-texture relative overflow-hidden px-6 pb-24 pt-24 md:px-10 md:pb-40 md:pt-36"
     >
       <span
         aria-hidden="true"
@@ -29,10 +30,18 @@ export function Hero() {
           small businesses and sole traders the credibility their work already
           deserves.
         </p>
-        <div className="mt-12 flex flex-wrap items-center gap-8">
-          <SolidLink href="#contact">Request a Quote</SolidLink>
-          <TextLink href="#work">See recent work</TextLink>
+        <div className="mt-12 flex flex-wrap items-center gap-5">
+          <SolidLink href={PHONE_TEL}>Call {PHONE_DISPLAY}</SolidLink>
+          <OutlineLink
+            href={WHATSAPP_URL}
+            className="border-primary/40 text-primary hover:bg-primary/10"
+          >
+            Message on WhatsApp
+          </OutlineLink>
         </div>
+        <p className="mt-6 text-sm text-muted-foreground">
+          <TextLink href="#work">See recent work</TextLink>
+        </p>
       </div>
     </section>
   );
@@ -112,17 +121,17 @@ export function Services() {
           <Reveal key={s.title} delay={120 * (i + 1)}>
             <article className="flex h-full flex-col rounded-[10px] border-[0.5px] border-border bg-card p-9 md:p-11">
               <s.Icon className="h-6 w-6 text-primary" />
-              <span className="mt-6 block font-serif text-lg text-primary">{s.n}</span>
+              <span className="mt-6 block font-mono text-sm tracking-[0.2em] text-primary">{s.n}</span>
 
               <h3 className="mt-6 font-serif text-2xl">{s.title}</h3>
               <p className="mt-4 flex-1 text-sm leading-relaxed text-muted-foreground">
                 {s.body}
               </p>
               <a
-                href="#contact"
-                className="mt-8 text-[0.68rem] uppercase tracking-[0.18em] text-primary transition-colors hover:text-foreground"
+                href={PHONE_TEL}
+                className="mt-8 font-mono text-[0.68rem] uppercase tracking-[0.18em] text-primary transition-colors hover:text-foreground"
               >
-                Explore &rarr;
+                Call to discuss &rarr;
               </a>
             </article>
           </Reveal>
@@ -186,7 +195,7 @@ export function Why() {
               <div className="grid gap-4 py-8 sm:grid-cols-[auto_1fr] sm:gap-10">
                 <div className="flex flex-col items-start gap-2 sm:items-center">
                    <AnchorMark className="h-4 w-4 text-teal-bright" />
-                   <span className="font-serif text-xl text-teal-bright">{r.n}</span>
+                   <span className="font-mono text-base tracking-[0.2em] text-teal-bright">{r.n}</span>
                 </div>
                 <div>
                   <h3 className="font-serif text-xl">{r.title}</h3>
@@ -253,12 +262,21 @@ export function CaseStudy() {
               our clients, and provides us with something we can be proud to show new
               clients. It is unusual to come across somebody who can convert an unclear
               concept into something like this without our continuous guidance.&rdquo;
-              <footer className="mt-5 font-sans text-[0.68rem] uppercase tracking-[0.18em] text-muted-foreground">
+              <footer className="mt-5 font-mono text-[0.68rem] uppercase tracking-[0.18em] text-muted-foreground">
                 Vilaconic, Adelaide
               </footer>
             </blockquote>
           </div>
-          <div className="mt-10">
+          <div className="mt-10 flex flex-wrap items-center gap-5">
+            <SolidLink href={PHONE_TEL}>Call {PHONE_DISPLAY}</SolidLink>
+            <OutlineLink
+              href={WHATSAPP_URL}
+              className="border-primary/40 text-primary hover:bg-primary/10"
+            >
+              Message on WhatsApp
+            </OutlineLink>
+          </div>
+          <div className="mt-6">
             <TextLink href="https://vilaconic.vercel.app" external>
               Visit the live site &rarr;
             </TextLink>
@@ -343,9 +361,28 @@ export function Contact() {
             A short message is enough to start. I will reply with honest thoughts on
             what would help, and a fixed price if it is a good fit.
           </p>
-          <div className="mt-8 space-y-2 text-sm text-muted-foreground">
-            <p>hello@anchorweb.com.au</p>
-            <p>0400 000 000</p>
+          <div className="mt-8 space-y-4">
+            <a
+              href={PHONE_TEL}
+              className="block font-serif text-3xl text-primary transition-colors hover:text-foreground"
+            >
+              Call {PHONE_DISPLAY}
+            </a>
+            <a
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center justify-center rounded-[8px] border border-primary/40 px-6 py-3 font-mono text-[0.7rem] uppercase tracking-[0.18em] text-primary transition-colors hover:bg-primary/10"
+            >
+              Message on WhatsApp
+            </a>
+            <p className="pt-2 text-sm text-muted-foreground">
+              Prefer email? Send a message below, or write to{" "}
+              <a href={`mailto:${EMAIL}`} className="underline underline-offset-4 hover:text-primary">
+                {EMAIL}
+              </a>
+              .
+            </p>
           </div>
         </Reveal>
 
@@ -354,8 +391,7 @@ export function Contact() {
             <div className="flex items-center rounded-[10px] border-[0.5px] border-border p-10">
               <p className="text-base leading-relaxed text-muted-foreground">
                 Thank you — your message has been noted. This form is not yet connected
-                to an inbox, so please reach out directly at hello@anchorweb.com.au in
-                the meantime.
+                to an inbox — for anything urgent, call {PHONE_DISPLAY}.
               </p>
             </div>
           ) : (
@@ -370,7 +406,7 @@ export function Contact() {
                 <div key={f.name} className="flex flex-col gap-2">
                   <label
                     htmlFor={f.name}
-                    className="text-[0.68rem] uppercase tracking-[0.18em] text-muted-foreground"
+                    className="font-mono text-[0.68rem] uppercase tracking-[0.18em] text-muted-foreground"
                   >
                     {f.label}
                   </label>
@@ -386,7 +422,7 @@ export function Contact() {
               <div className="flex flex-col gap-2 sm:col-span-2">
                 <label
                   htmlFor="message"
-                  className="text-[0.68rem] uppercase tracking-[0.18em] text-muted-foreground"
+                  className="font-mono text-[0.68rem] uppercase tracking-[0.18em] text-muted-foreground"
                 >
                   Message
                 </label>
@@ -401,7 +437,7 @@ export function Contact() {
               <div className="sm:col-span-2">
                 <button
                   type="submit"
-                  className="inline-flex items-center justify-center rounded-[8px] bg-primary px-8 py-3.5 text-[0.7rem] uppercase tracking-[0.18em] text-primary-foreground transition-colors hover:bg-primary/90"
+                  className="inline-flex items-center justify-center rounded-[8px] border border-border px-7 py-3 font-mono text-[0.68rem] uppercase tracking-[0.18em] text-muted-foreground transition-colors hover:border-primary hover:text-primary"
                 >
                   Send enquiry
                 </button>

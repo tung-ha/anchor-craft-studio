@@ -35,7 +35,7 @@ const jsonLd = {
   name: "Anchor Web",
   description,
   email: "hello@anchorweb.com.au",
-  telephone: "0400 000 000",
+  telephone: "+61412805997",
   areaServed: "Adelaide, South Australia",
   address: {
     "@type": "PostalAddress",
