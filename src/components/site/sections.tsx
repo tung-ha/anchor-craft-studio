@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Label, OutlineLink, Section, SolidLink, TextLink } from "./primitives";
-import { AnchorMark, Reveal } from "./motif";
+import { AnchorMark, Reveal, ServiceIcons } from "./motif";
 
 export function Hero() {
   return (
