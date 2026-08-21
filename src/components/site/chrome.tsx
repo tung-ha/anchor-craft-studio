@@ -12,7 +12,8 @@ export function Header() {
   return (
     <header className="bg-forest text-forest-foreground">
       <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-5 md:px-10">
-        <a href="#top" className="font-serif text-lg tracking-tight">
+        <a href="#top" className="flex items-center gap-2.5 font-serif text-lg tracking-tight">
+          <AnchorMark className="h-5 w-5 shrink-0 text-sage-soft" />
           Anchor Web
         </a>
         <nav className="hidden items-center gap-9 md:flex">
