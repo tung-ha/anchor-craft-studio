@@ -128,10 +128,10 @@ export function Services() {
                 {s.body}
               </p>
               <a
-                href={PHONE_TEL}
+                href="#contact"
                 className="mt-8 font-mono text-[0.68rem] uppercase tracking-[0.18em] text-primary transition-colors hover:text-foreground"
               >
-                Call to discuss &rarr;
+                Explore &rarr;
               </a>
             </article>
           </Reveal>
