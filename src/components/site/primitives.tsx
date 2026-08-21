@@ -37,7 +37,7 @@ export function Section({
 }
 
 const base =
-  "inline-flex items-center justify-center px-7 py-3.5 text-[0.7rem] uppercase tracking-[0.18em] transition-colors";
+  "inline-flex items-center justify-center rounded-[8px] px-7 py-3.5 text-[0.7rem] uppercase tracking-[0.18em] transition-colors";
 
 export function SolidLink({
   href,
