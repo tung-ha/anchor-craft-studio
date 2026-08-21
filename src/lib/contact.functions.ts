@@ -22,9 +22,11 @@ export const sendEnquiry = createServerFn({ method: "POST" })
   .inputValidator((data: unknown) => enquirySchema.parse(data))
   .handler(async ({ data }) => {
     const apiKey = process.env["RESEND_API_KEY"];
-    if (!apiKey) {
+    const lovableKey = process.env["LOVABLE_API_KEY"];
+    if (!apiKey || !lovableKey) {
       throw new Error("Email is not configured yet.");
     }
+
 
     const rows: [string, string][] = [
       ["Name", data.name],
@@ -47,12 +49,14 @@ export const sendEnquiry = createServerFn({ method: "POST" })
       </div>
     `;
 
-    const res = await fetch("https://api.resend.com/emails", {
+    const res = await fetch("https://connector-gateway.lovable.dev/resend/emails", {
       method: "POST",
       headers: {
-        Authorization: `Bearer ${apiKey}`,
+        Authorization: `Bearer ${lovableKey}`,
+        "X-Connection-Api-Key": apiKey,
         "Content-Type": "application/json",
       },
+
       body: JSON.stringify({
         from: "Anchor Web <onboarding@resend.dev>",
         to: ["tung.tan.ha@gmail.com"],
