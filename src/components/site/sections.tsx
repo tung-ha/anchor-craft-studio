@@ -340,9 +340,40 @@ const fields = [
 
 export function Contact() {
   const [sent, setSent] = useState(false);
+  const [busy, setBusy] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const submit = useServerFn(sendEnquiry);
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setBusy(true);
+    setError(null);
+    const fd = new FormData(e.currentTarget);
+    try {
+      await submit({
+        data: {
+          name: String(fd.get("name") ?? ""),
+          business: String(fd.get("business") ?? ""),
+          email: String(fd.get("email") ?? ""),
+          phone: String(fd.get("phone") ?? ""),
+          message: String(fd.get("message") ?? ""),
+        },
+      });
+      setSent(true);
+    } catch (err) {
+      setError(
+        err instanceof Error && err.message
+          ? err.message
+          : "Something went wrong. Please call or WhatsApp instead.",
+      );
+    } finally {
+      setBusy(false);
+    }
+  }
 
   return (
     <Section id="contact">
+
       <div className="grid gap-14 md:grid-cols-[0.8fr_1.2fr]">
         <Reveal>
           <Label>Contact</Label>
