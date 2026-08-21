@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useServerFn } from "@tanstack/react-start";
 import { sendEnquiry } from "@/lib/contact.functions";
+import { enquirySchema } from "@/lib/contact.schema";
 import { Label, OutlineLink, Section, SolidLink, TextLink } from "./primitives";
 import { PHONE_DISPLAY, PHONE_TEL, WHATSAPP_URL, EMAIL } from "@/lib/contact";
 import { AnchorMark, Reveal, ServiceIcons } from "./motif";
