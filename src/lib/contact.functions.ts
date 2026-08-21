@@ -49,12 +49,14 @@ export const sendEnquiry = createServerFn({ method: "POST" })
       </div>
     `;
 
-    const res = await fetch("https://api.resend.com/emails", {
+    const res = await fetch("https://connector-gateway.lovable.dev/resend/emails", {
       method: "POST",
       headers: {
-        Authorization: `Bearer ${apiKey}`,
+        Authorization: `Bearer ${lovableKey}`,
+        "X-Connection-Api-Key": apiKey,
         "Content-Type": "application/json",
       },
+
       body: JSON.stringify({
         from: "Anchor Web <onboarding@resend.dev>",
         to: ["tung.tan.ha@gmail.com"],
